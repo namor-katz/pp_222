@@ -9,14 +9,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Cars</title>
+    <title>${cars}</title>
 </head>
 <body>
 
 
 <div align="center">
 <table border="1" cellpadding="5">
-<caption>List Cars</caption>
+<caption>${cars}</caption>
 <tr>
     <th>Vendor</th>
     <th>Models</th>
@@ -27,9 +27,6 @@
     <td><c:out value="${car.vendor}" /></td>
     <td><c:out value="${car.model}" /></td>
     <td><c:out value="${car.ageMake}" /></td>
-    <td>
-    </td>
-
     </tr>
     </c:forEach>
 
