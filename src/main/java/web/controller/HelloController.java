@@ -19,7 +19,7 @@ public class HelloController {
 		messages.add("I'm Spring MVC application");
 		messages.add("5.2.0 version by sep'19 ");
 		model.addAttribute("messages", messages);
-		return "hello";
+		return "hello";//WTF?  почему возврать строки есть имя jsp????
 	}
 	
 }

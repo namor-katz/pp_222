@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: guest
@@ -12,5 +13,25 @@
 </head>
 <body>
 
+
+<div align="center">
+<table border="1" cellpadding="5">
+<caption>List Cars</caption>
+<tr>
+    <th>Vendor</th>
+    <th>Models</th>
+    <th>Date manufactur</th>
+</tr>
+<c:forEach var="car" items="${listCars}">
+    <tr>
+    <td><c:out value="${car.vendor}" /></td>
+    <td><c:out value="${car.model}" /></td>
+    <td><c:out value="${car.ageMake}" /></td>
+    <td>
+    </td>
+
+    </tr>
+    </c:forEach>
+
 </body>
-</html>
+    </html>
