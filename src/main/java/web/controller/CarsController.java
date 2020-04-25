@@ -5,7 +5,7 @@ import web.models.Car;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
-import web.service.returnListCarsService;
+import web.service.CarsService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,17 +13,26 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = "/cars")
 public class CarsController extends HttpServlet {
 
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-            HttpSession session = req.getSession();
-            returnListCarsService rls = new returnListCarsService();
+            CarsService rls = new CarsService();
             List<Car> listCars = new LinkedList<>();
-            String cars = (String) session.getAttribute("cars");
+
+            String cars;
+            String lang = req.getParameter("locale");
+            try {
+                if(lang.equals("ru")) {
+                    cars = "МАШИНЫ";
+                } else {
+                    cars = "CARS";
+                }
+            } catch (Exception e) {
+                cars = "CARS";
+            }
 
             try {
                 listCars = rls.getListCars();

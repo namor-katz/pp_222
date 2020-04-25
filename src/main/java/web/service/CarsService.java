@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class returnListCarsService {
+public class CarsService {
     List<Car> listCar = new LinkedList<>();
 
     public List<Car> getListCars() {
